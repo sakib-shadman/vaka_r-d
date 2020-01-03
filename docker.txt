@@ -1,0 +1,11 @@
+mvn clean install
+
+Run Docker Container
+
+Create Docker Config File
+
+Build:
+docker build -f Dockerfile -t docker-vaka-device-manager .
+
+Run:
+docker run -p 9090:7070 docker-vaka-device-manager

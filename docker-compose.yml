@@ -1,0 +1,17 @@
+version: '3.0'
+
+services:
+  vaka-device-manager:
+    build:
+      context: .
+      dockerfile: Dockerfile2
+    container_name: vaka_device_manager
+    image: 523511807922.dkr.ecr.eu-north-1.amazonaws.com/instorage-se-vacka:0.1.0
+    volumes:
+      - ./src/main/resources:/home/config
+      - "./logs:/var/log/vaka"
+    environment:
+      - "SERVER_PORT=7070"
+      - "SPRING_CONFIG_LOCATION=/home/config/"
+    ports:
+        - "7070:7070"

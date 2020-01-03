@@ -1,0 +1,13 @@
+FROM openjdk:8-jdk-alpine
+
+VOLUME /tmp
+RUN pwd
+
+EXPOSE 7070
+
+
+ARG DEPENDENCY=target
+
+COPY ${DEPENDENCY}/vaka-device-manager-0.1.0.jar /home/vaka-device-manager-0.1.0.jar
+
+ENTRYPOINT [ "sh", "-c", "java -jar /home/vaka-device-manager-0.1.0.jar" ]
